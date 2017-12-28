@@ -6,6 +6,7 @@ import { Observable } from "rxjs/Observable";
 import { Observer } from "rxjs/Observer";
 
 import { IBatchHttpRequestAdapter, WellKnownHttpBatchingAdapters } from "../adapters/batching-adapter";
+import { HttpMultiFetchAdapter } from "../adapters/http-multifetch-adapter";
 import { HttpMultipartMixedBoundaryAdapter } from "../adapters/http-multipart-mixed-boundary-adapter";
 import { HttpBatchConfiguration, HttpBatchConfigurationCollection } from "../batch-configuration";
 import { BatchScheduler } from "./batch-scheduler";
@@ -78,6 +79,8 @@ export class HttpBatcher extends Http {
     switch (configuration.httpBatchingAdapter) {
       case WellKnownHttpBatchingAdapters.Http_MultipartMixed:
         return new HttpMultipartMixedBoundaryAdapter(configuration, this._defaultOptions);
+      case WellKnownHttpBatchingAdapters.Http_MultiFetch:
+        return new HttpMultiFetchAdapter(configuration, this._defaultOptions);
       default:
         return configuration.httpBatchingAdapter as IBatchHttpRequestAdapter;
     }
