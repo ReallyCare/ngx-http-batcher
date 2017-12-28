@@ -58,7 +58,8 @@ export class HttpBatcher extends Http {
   }
 
   protected canBatchRequest(configuration: HttpBatchConfiguration, request: Request): boolean {
-    return configuration.canBatchRequest(request);
+    return (configuration.ignoredHttpVerbs.indexOf(request.method) > -1) ?
+      false : configuration.canBatchRequest(request);
   }
 
   protected batchRequest(request: Request, configuration: HttpBatchConfiguration): Observable<Response> {
