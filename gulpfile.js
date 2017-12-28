@@ -11,3 +11,8 @@ gulp.task('compress', function() {
     }))
     .pipe(gulp.dest('dist/bundles/'))
 });
+
+gulp.task('copy', function () {
+  gulp.src(['package.json','*.md'])
+   .pipe(gulp.dest('dist'));
+});

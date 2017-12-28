@@ -5,8 +5,7 @@
   "scripts": {
     "build": "./node_modules/.bin/ngc -p ./src",
     "test": "karma start ./tests/karma.conf.js",
-    "bundle": "npm run build && webpack && gulp compress",
-    "postbundle": "copy \"package.json\" \"dist/package.json\" && copy \"CHANGELOG.md\" \"dist/CHANGELOG.md\" && copy \"README.md\" \"dist/README.md\"",
+    "bundle": "npm run build && webpack && gulp compress && gulp copy",
     "lint": "tslint -c tslint.json \"src/**/*.ts\""
   },
   "keywords": [
