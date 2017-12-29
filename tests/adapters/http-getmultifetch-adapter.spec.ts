@@ -1,16 +1,18 @@
 import { Headers, Request, RequestMethod, RequestOptions } from "@angular/http";
-import { HttpMultiFetchAdapter } from "../../src/adapters/http-multifetch-adapter";
+import { HttpGetMultiFetchAdapter } from "../../src/adapters/http-getmultifetch-adapter";
 import { HttpBatchConfiguration } from "../../src/batch-configuration";
 
-describe("HttpMultifetchAdapter", () => {
+describe("HttpGetMultifetchAdapter", () => {
+
   it("Can be created", () => {
     const config = new HttpBatchConfiguration({ batchEndpointUrl: "", rootEndpointUrl: "" });
     const defaultRequestOptions = new RequestOptions();
-    const adapter = new HttpMultiFetchAdapter(config, defaultRequestOptions);
+    const adapter = new HttpGetMultiFetchAdapter(config, defaultRequestOptions);
     expect(adapter).toBeDefined();
   });
 
   describe("batchRequests", () => {
+
     it("Should configure a single get batch request correctly", () => {
       const rootUrl = "https://api.abc.com/";
       const batchUrl = `${rootUrl}$batch`;
@@ -19,7 +21,7 @@ describe("HttpMultifetchAdapter", () => {
         rootEndpointUrl: rootUrl
       });
       const defaultRequestOptions = new RequestOptions();
-      const adapter = new HttpMultiFetchAdapter(config, defaultRequestOptions);
+      const adapter = new HttpGetMultiFetchAdapter(config, defaultRequestOptions);
 
       const requests = [new Request({ url: `${rootUrl}users`, method: RequestMethod.Get })];
       const batchRequest = adapter.batch(requests);

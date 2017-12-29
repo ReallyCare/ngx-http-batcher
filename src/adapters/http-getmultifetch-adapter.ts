@@ -1,10 +1,21 @@
+/*
+  Adapter for Multi Fetch batching (which only supports the HTTP GET verb)
+
+  To use this adapter add the following properties to your
+  ignoredHttpVerbs: [RequestMethod.Head, RequestMethod.Options, RequestMethod.Post, RequestMethod.Put, RequestMethod.Delete, RequestMethod.Patch],
+            httpBatchingAdapter: WellKnownHttpBatchingAdapters.Http_GetMultiFetch,
+
+
+  Easy to use with Node and Express - see http://batch-request.socialradar.com
+*/
+
 import { Headers, Request, RequestMethod, RequestOptions,
   Response, ResponseOptions, ResponseType } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import { HttpBatchConfiguration } from "../batch-configuration";
 import { IBatchHttpRequestAdapter } from "./batching-adapter";
 
-export class HttpMultiFetchAdapter implements IBatchHttpRequestAdapter {
+export class HttpGetMultiFetchAdapter implements IBatchHttpRequestAdapter {
 
 public constructor(private configuration: HttpBatchConfiguration, private defaultRequestOptions: RequestOptions) { }
 

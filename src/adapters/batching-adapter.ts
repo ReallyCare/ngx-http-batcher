@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 
 export enum WellKnownHttpBatchingAdapters {
   Http_MultipartMixed = 0,
-  Http_MultiFetch
+  Http_GetMultiFetch
 }
 
 export interface IBatchHttpRequestAdapter {
