@@ -1,10 +1,10 @@
 /*
   Adapter for Multi Fetch batching (which only supports the HTTP GET verb)
 
-  To use this adapter add the following properties to your
-  ignoredHttpVerbs: [RequestMethod.Head, RequestMethod.Options, RequestMethod.Post, RequestMethod.Put, RequestMethod.Delete, RequestMethod.Patch],
-            httpBatchingAdapter: WellKnownHttpBatchingAdapters.Http_GetMultiFetch,
-
+  To use this adapter add the following properties to your HttpBatchConfiguration:
+  - ignoredHttpVerbs: [RequestMethod.Head, RequestMethod.Options, RequestMethod.Post, RequestMethod.Put,
+       RequestMethod.Delete, RequestMethod.Patch],
+  - httpBatchingAdapter: WellKnownHttpBatchingAdapters.Http_GetMultiFetch,
 
   Easy to use with Node and Express - see http://batch-request.socialradar.com
 */
